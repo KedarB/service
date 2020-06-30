@@ -33,7 +33,7 @@ func (sc linuxSystemService) New(i Interface, c *Config) (Service, error) {
 }
 
 func init() {
-		linuxSystemService{
+		ChooseSystem(linuxSystemService{
 			name:   "linux-upstart",
 			detect: isUpstart,
 			interactive: func() bool {
@@ -42,7 +42,7 @@ func init() {
 			},
 			new: newUpstartService,
 		},
-		ChooseSystem(linuxSystemService{
+		linuxSystemService{
 			name:   "linux-systemd",
 			detect: isSystemd,
 			interactive: func() bool {
